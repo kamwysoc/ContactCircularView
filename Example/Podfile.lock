@@ -1,0 +1,25 @@
+PODS:
+  - ContactCircularView (0.1.0)
+  - Nimble (3.2.0)
+  - PureLayout (3.0.2)
+  - Quick (0.9.2)
+
+DEPENDENCIES:
+  - ContactCircularView (from `../`)
+  - Nimble (~> 3.0)
+  - PureLayout
+  - Quick (~> 0.8)
+
+EXTERNAL SOURCES:
+  ContactCircularView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ContactCircularView: 5653a519e29b90c4395240d85832886a421def14
+  Nimble: 703854335d181df169bbca9c97117b5cf8c47c1d
+  PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
+  Quick: 18d057bc66451eedd5d1c8dc99ba2a5db6e60226
+
+PODFILE CHECKSUM: 43efd8289e83acc633dc090e4ff348ab30599cee
+
+COCOAPODS: 1.0.1

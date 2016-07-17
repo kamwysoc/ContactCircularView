@@ -1,0 +1,6 @@
+framework module Pods_ContactCircularView_Example {
+  umbrella header "Pods-ContactCircularView_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

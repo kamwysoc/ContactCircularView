@@ -2,6 +2,7 @@ use_frameworks!
 
 target 'ContactCircularView_Example' do
   pod 'ContactCircularView', :path => '../'
+  pod 'PureLayout'
 
   target 'ContactCircularView_Tests' do
     inherit! :search_paths

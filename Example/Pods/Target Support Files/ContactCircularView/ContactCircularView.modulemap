@@ -1,0 +1,6 @@
+framework module ContactCircularView {
+  umbrella header "ContactCircularView-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "ContactCircularView",
+  "version": "0.1.0",
+  "summary": "A short description of ContactCircularView.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/ContactCircularView",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Kamil Wysocki": "kamil.wysocki93@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/ContactCircularView.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "ContactCircularView/Classes/**/*"
+}
