@@ -27,7 +27,7 @@ Main inspiration was Contact circular views in iOS Contacts
   s.homepage         = 'https://github.com/k8mil/ContactCircularView'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Kamil Wysocki' => 'kamil.wysocki93@gmail.com' }
+  s.author           = { 'Kamil Wysocki' => '' }
   s.source           = { :git => 'https://github.com/k8mil/ContactCircularView.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/_k8mil'
 
