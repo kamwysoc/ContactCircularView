@@ -136,7 +136,7 @@ class MainView: UIView {
     func updateContactInitialsView() {
         contactInitialsView.applyInitialsFromName(nameTextField.text);
         let selectedColor = circleViewColors[colorCellSelections.indexOf(true)!]
-        contactInitialsView.applyBackgroundColor(selectedColor)
+        contactInitialsView.backgroundColor = selectedColor
         if (borderSwitch.on) {
             contactInitialsView.applyBorderWithColor(UIColor.greenColor(), andWidth: 2.0)
         } else {
