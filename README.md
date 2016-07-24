@@ -22,7 +22,7 @@ pod "ContactCircularView"
 
 ## Author
 
-Kamil Wysocki, kamil.wysocki93@gmail.com
+Kamil Wysocki
 
 ## License
 
