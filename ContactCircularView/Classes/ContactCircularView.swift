@@ -26,6 +26,7 @@ public class ContactCircularView: UIView {
         commonInit()
     }
 
+
     public init(textCreator: ContactCircularViewTextCreatorProtocol) {
         super.init(frame: CGRectZero)
         self.textCreator = textCreator
@@ -101,7 +102,7 @@ extension ContactCircularView {
         imageView.hidden = true
         textLabel.hidden = false
         if let unwrappedName = name {
-            let initials = initialsCreator.makeFormattedTextFromString(unwrappedName)
+            let initials = initialsCreator.formattedTextFromString(unwrappedName)
             textLabel.text = initials
         } else {
             textLabel.text = ""
@@ -112,11 +113,11 @@ extension ContactCircularView {
     Sets formatted text from string using custom text creator.
     Text Creator must be initialized by `initWithTextCreator` before using this method
     */
-    public func applyFormattedTextFromString(string : String?) {
+    public func applyFormattedTextFromString(string: String?) {
         imageView.hidden = true
         textLabel.hidden = false
         if let unwrappedName = string {
-            let initials = textCreator?.makeFormattedTextFromString(unwrappedName)
+            let initials = textCreator?.formattedTextFromString(unwrappedName)
             textLabel.text = initials
         } else {
             textLabel.text = ""

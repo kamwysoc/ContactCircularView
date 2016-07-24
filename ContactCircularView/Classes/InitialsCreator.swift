@@ -2,7 +2,7 @@ import Foundation
 
 public class InitialsCreator: ContactCircularViewTextCreatorProtocol {
 
-    public func makeFormattedTextFromString(string: String) -> String {
+    public func formattedTextFromString(string: String) -> String {
         var wordsArray = string.componentsSeparatedByCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet());
         wordsArray = wordsArray.filter({
             (word: String) -> Bool in

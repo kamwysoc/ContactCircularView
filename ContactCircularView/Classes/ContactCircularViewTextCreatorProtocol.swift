@@ -1,5 +1,5 @@
 import Foundation
 
 public protocol ContactCircularViewTextCreatorProtocol {
-    func makeFormattedTextFromString(string: String) -> String
+    func formattedTextFromString(string: String) -> String
 }
