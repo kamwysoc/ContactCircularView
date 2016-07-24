@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ContactCircularView'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'Contact circular view than allows you to represent your friends by initials or image.'
 
 # This description is used to generate tags and improve search results.
