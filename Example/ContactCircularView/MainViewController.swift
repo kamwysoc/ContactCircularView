@@ -1,11 +1,3 @@
-//
-//  MainViewController.swift
-//  ContactCircleView
-//
-//  Created by Kamil Wysocki on 26/06/16.
-//  Copyright © 2016 k8mil. All rights reserved.
-//
-
 import UIKit
 import PureLayout
 

@@ -1,33 +1,42 @@
-//
-// Created by Kamil Wysocki on 06/07/16.
-// Copyright (c) 2016 k8mil. All rights reserved.
-//
-
 import Foundation
 import UIKit
+
 /**
 View that allows you to represent people initials (like in Contact book) also it allows you to
-put some image instead using person initials.
+put some image instead using initials.
 
 Main inspiration was Contact circular views in iOS Contacts
 */
+
 public class ContactCircularView: UIView {
-    var textLabel: UILabel!
-    var imageView: UIImageView!
+    private var textLabel: UILabel!
+    private var imageView: UIImageView!
+    private var initialsCreator: ContactCircularViewTextCreatorProtocol!
+    private var textCreator: ContactCircularViewTextCreatorProtocol?
 
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        self.textCreator = InitialsCreator()
         commonInit()
     }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.textCreator = InitialsCreator()
+        commonInit()
+    }
+
+    public init(textCreator: ContactCircularViewTextCreatorProtocol) {
+        super.init(frame: CGRectZero)
+        self.textCreator = textCreator
         commonInit()
     }
 
     private func commonInit() {
+        self.backgroundColor = UIColor.redColor()
         createTextLabel()
         createImageView()
+        createInitialsCreator()
         applyConstraints()
     }
 
@@ -44,6 +53,7 @@ public class ContactCircularView: UIView {
 
     private func createTextLabel() {
         textLabel = UILabel()
+        textLabel.numberOfLines = 1
         textLabel.translatesAutoresizingMaskIntoConstraints = false;
         textLabel.textAlignment = .Center
         self.addSubview(self.textLabel)
@@ -56,8 +66,13 @@ public class ContactCircularView: UIView {
         self.addSubview(imageView)
     }
 
+    private func createInitialsCreator() {
+        initialsCreator = InitialsCreator()
+    }
+
+
     private func applyConstraints() {
-        let padding = UIEdgeInsetsMake(0,0, 0, 0);
+        let padding = UIEdgeInsetsMake(0, 0, 0, 0);
         let textFieldTopConstraint = NSLayoutConstraint(item: textLabel, attribute: .Top, relatedBy: .Equal, toItem: self, attribute: .Top, multiplier: 1.0, constant: padding.top)
         let textFieldLeftConstraint = NSLayoutConstraint(item: textLabel, attribute: .Left, relatedBy: .Equal, toItem: self, attribute: .Left, multiplier: 1.0, constant: padding.left)
         let textFieldRightConstraint = NSLayoutConstraint(item: textLabel, attribute: .Right, relatedBy: .Equal, toItem: self, attribute: .Right, multiplier: 1.0, constant: padding.right)
@@ -75,7 +90,6 @@ public class ContactCircularView: UIView {
 }
 
 extension ContactCircularView {
-    //todo some method for attributed string
     /*
     Sets an initials from name passed in parameter.
     e.q. "John Doe" -> "JD"
@@ -87,7 +101,22 @@ extension ContactCircularView {
         imageView.hidden = true
         textLabel.hidden = false
         if let unwrappedName = name {
-            let initials = InitialsCreator.makeInitialsFromString(unwrappedName)
+            let initials = initialsCreator.makeFormattedTextFromString(unwrappedName)
+            textLabel.text = initials
+        } else {
+            textLabel.text = ""
+        }
+    }
+
+    /**
+    Sets formatted text from string using custom text creator.
+    Text Creator must be initialized by `initWithTextCreator` before using this method
+    */
+    public func applyFormattedTextFromString(string : String?) {
+        imageView.hidden = true
+        textLabel.hidden = false
+        if let unwrappedName = string {
+            let initials = textCreator?.makeFormattedTextFromString(unwrappedName)
             textLabel.text = initials
         } else {
             textLabel.text = ""

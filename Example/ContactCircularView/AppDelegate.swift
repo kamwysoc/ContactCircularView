@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  ContactCircularView
-//
-//  Created by Kamil Wysocki on 07/17/2016.
-//  Copyright (c) 2016 Kamil Wysocki. All rights reserved.
-//
 import UIKit
 
 @UIApplicationMain

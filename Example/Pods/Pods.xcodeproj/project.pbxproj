@@ -87,6 +87,7 @@
 		A55EC200F57C00E9A78D8A9DA4545338 /* HaveCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CCB807861C26D0B58B14E2371378D /* HaveCount.swift */; };
 		B43EDBC7DA15A429006C67B63D45ACFD /* ThrowError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D643F839FB899455EB05C9C738CAAF8F /* ThrowError.swift */; };
 		B445E6302800BA54CD27EFF4 /* InitialsCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B445EA6B67717B7CF367AF05 /* InitialsCreator.swift */; };
+		B445E923E49FC8E04E30F79A /* ContactCircularViewTextCreatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B445EAE21BE192CC3869D5C2 /* ContactCircularViewTextCreatorProtocol.swift */; };
 		B445EB771BD58F4560E43B8E /* ContactCircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B445ED3BC714C114F19A5850 /* ContactCircularView.swift */; };
 		B47036E7FC12F39F7ACDFBDC3F9AA78E /* QuickSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 599D562B2459218CE997D884DE1F42BC /* QuickSpec.m */; };
 		B4B029AF605DDFADC4B4BE41A83C345E /* NSLayoutConstraint+PureLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 45CC0FB0B3B15C1204C07E24207ED8AC /* NSLayoutConstraint+PureLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -257,6 +258,7 @@
 		AF7917133693DF63400F9863109FD010 /* SuiteHooks.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SuiteHooks.swift; path = Sources/Quick/Hooks/SuiteHooks.swift; sourceTree = "<group>"; };
 		B385A6C68B36AA6C30949C506E0AC7FE /* Nimble-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Nimble-prefix.pch"; sourceTree = "<group>"; };
 		B445EA6B67717B7CF367AF05 /* InitialsCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialsCreator.swift; sourceTree = "<group>"; };
+		B445EAE21BE192CC3869D5C2 /* ContactCircularViewTextCreatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCircularViewTextCreatorProtocol.swift; sourceTree = "<group>"; };
 		B445ED3BC714C114F19A5850 /* ContactCircularView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCircularView.swift; sourceTree = "<group>"; };
 		B7189EEFBED046AB9216C134B56F997C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B73CCB807861C26D0B58B14E2371378D /* HaveCount.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HaveCount.swift; path = Sources/Nimble/Matchers/HaveCount.swift; sourceTree = "<group>"; };
@@ -493,6 +495,7 @@
 			children = (
 				B445ED3BC714C114F19A5850 /* ContactCircularView.swift */,
 				B445EA6B67717B7CF367AF05 /* InitialsCreator.swift */,
+				B445EAE21BE192CC3869D5C2 /* ContactCircularViewTextCreatorProtocol.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -948,6 +951,7 @@
 				CE739B4C104DA1CD1AC1931750568B11 /* ContactCircularView-dummy.m in Sources */,
 				B445EB771BD58F4560E43B8E /* ContactCircularView.swift in Sources */,
 				B445E6302800BA54CD27EFF4 /* InitialsCreator.swift in Sources */,
+				B445E923E49FC8E04E30F79A /* ContactCircularViewTextCreatorProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

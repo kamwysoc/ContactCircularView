@@ -1,8 +1,3 @@
-//
-// Created by Kamil Wysocki on 16/07/16.
-// Copyright (c) 2016 k8mil. All rights reserved.
-//
-
 import Foundation
 import UIKit
 import ContactCircularView

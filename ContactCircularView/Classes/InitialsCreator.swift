@@ -1,13 +1,8 @@
-//
-// Created by Kamil Wysocki on 26/06/16.
-// Copyright (c) 2016 k8mil. All rights reserved.
-//
-
 import Foundation
 
-public class InitialsCreator {
+public class InitialsCreator: ContactCircularViewTextCreatorProtocol {
 
-    public class func makeInitialsFromString(string: String) -> String {
+    public func makeFormattedTextFromString(string: String) -> String {
         var wordsArray = string.componentsSeparatedByCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet());
         wordsArray = wordsArray.filter({
             (word: String) -> Bool in
