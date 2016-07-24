@@ -1,6 +1,6 @@
 import Foundation
 
-public class InitialsCreator: ContactCircularViewTextCreatorProtocol {
+public class InitialsCreator: FormattedTextCreator {
 
     public func formattedTextFromString(string: String) -> String {
         var wordsArray = string.componentsSeparatedByCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet());

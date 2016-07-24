@@ -11,30 +11,30 @@ Main inspiration was Contact circular views in iOS Contacts
 public class ContactCircularView: UIView {
     private var textLabel: UILabel!
     private var imageView: UIImageView!
-    private var initialsCreator: ContactCircularViewTextCreatorProtocol!
-    private var textCreator: ContactCircularViewTextCreatorProtocol?
+    private var initialsCreator: FormattedTextCreator!
+    private var textCreator: FormattedTextCreator?
 
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.textCreator = InitialsCreator()
+        textCreator = InitialsCreator()
         commonInit()
     }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.textCreator = InitialsCreator()
+        textCreator = InitialsCreator()
         commonInit()
     }
 
 
-    public init(textCreator: ContactCircularViewTextCreatorProtocol) {
+    public init(textCreator: FormattedTextCreator) {
         super.init(frame: CGRectZero)
         self.textCreator = textCreator
         commonInit()
     }
 
     private func commonInit() {
-        self.backgroundColor = UIColor.redColor()
+        backgroundColor = UIColor.redColor()
         createTextLabel()
         createImageView()
         createInitialsCreator()
@@ -43,13 +43,13 @@ public class ContactCircularView: UIView {
 
     public override var bounds: CGRect {
         didSet {
-            self.applyCircleShareWithBounds(bounds)
+            applyCircleShareWithBounds(bounds)
         }
     }
 
     private func applyCircleShareWithBounds(bounds: CGRect) {
-        self.layer.cornerRadius = bounds.width / 2
-        self.layer.masksToBounds = true
+        layer.cornerRadius = bounds.width / 2
+        layer.masksToBounds = true
     }
 
     private func createTextLabel() {
@@ -57,14 +57,14 @@ public class ContactCircularView: UIView {
         textLabel.numberOfLines = 1
         textLabel.translatesAutoresizingMaskIntoConstraints = false;
         textLabel.textAlignment = .Center
-        self.addSubview(self.textLabel)
+        addSubview(self.textLabel)
     }
 
     private func createImageView() {
         imageView = UIImageView(image: nil)
         imageView.translatesAutoresizingMaskIntoConstraints = false;
         imageView.hidden = true
-        self.addSubview(imageView)
+        addSubview(imageView)
     }
 
     private func createInitialsCreator() {
@@ -114,13 +114,17 @@ extension ContactCircularView {
     Text Creator must be initialized by `initWithTextCreator` before using this method
     */
     public func applyFormattedTextFromString(string: String?) {
-        imageView.hidden = true
-        textLabel.hidden = false
-        if let unwrappedName = string {
-            let initials = textCreator?.formattedTextFromString(unwrappedName)
-            textLabel.text = initials
+        if let unwrappedTextCreator = textCreator {
+            imageView.hidden = true
+            textLabel.hidden = false
+            if let unwrappedName = string {
+                let initials = unwrappedTextCreator.formattedTextFromString(unwrappedName)
+                textLabel.text = initials
+            } else {
+                textLabel.text = ""
+            }
         } else {
-            textLabel.text = ""
+            print("[ContactCircularView] custom text creator is nil")
         }
     }
 
@@ -128,8 +132,8 @@ extension ContactCircularView {
     Sets a border with color like in parameters
     */
     public func applyBorderWithColor(color: UIColor, andWidth width: CGFloat) {
-        self.layer.borderColor = color.CGColor
-        self.layer.borderWidth = width
+        layer.borderColor = color.CGColor
+        layer.borderWidth = width
     }
 
     /**
@@ -155,13 +159,6 @@ extension ContactCircularView {
     }
 
     /**
-    Sets a background color from parameter
-    */
-    public func applyBackgroundColor(color: UIColor) {
-        self.backgroundColor = color
-    }
-
-    /**
     Apply image from parameter.
     It makes textLabel hidden
     */
@@ -175,6 +172,6 @@ extension ContactCircularView {
     Applying border width to 0
     */
     public func removeBorder() {
-        self.layer.borderWidth = 0
+        layer.borderWidth = 0
     }
 }
