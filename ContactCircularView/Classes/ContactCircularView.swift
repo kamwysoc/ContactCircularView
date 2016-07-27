@@ -152,10 +152,11 @@ extension ContactCircularView {
     }
 
     /**
-    Sets a textLabel font from parameter
+    Sets a textLabel font and color from parameters
     */
-    public func applyTextFont(font: UIFont) {
+    public func applyTextFont(font: UIFont, andColor color: UIColor) {
         textLabel.font = font
+        textLabel.textColor = color
     }
 
     /**
