@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1B6C623FB2A5EA0426E2FD76 /* Pods_ContactCircularView_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF13AA18EA430B5E1A45327D /* Pods_ContactCircularView_Example.framework */; };
+		564C553D1D495FC4008ECC27 /* ContactCircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564C553A1D495FC4008ECC27 /* ContactCircularView.swift */; };
+		564C553E1D495FC4008ECC27 /* ContactCircularViewTextCreatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564C553B1D495FC4008ECC27 /* ContactCircularViewTextCreatorProtocol.swift */; };
+		564C553F1D495FC4008ECC27 /* InitialsCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564C553C1D495FC4008ECC27 /* InitialsCreator.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
@@ -31,6 +34,9 @@
 /* Begin PBXFileReference section */
 		40407F7242BDFFB7AE0D333F /* Pods-ContactCircularView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContactCircularView_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ContactCircularView_Tests/Pods-ContactCircularView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		4FDFB057CDF318B3C50A32F5 /* Pods_ContactCircularView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ContactCircularView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		564C553A1D495FC4008ECC27 /* ContactCircularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContactCircularView.swift; path = ../ContactCircularView/Classes/ContactCircularView.swift; sourceTree = "<group>"; };
+		564C553B1D495FC4008ECC27 /* ContactCircularViewTextCreatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContactCircularViewTextCreatorProtocol.swift; path = ../ContactCircularView/Classes/ContactCircularViewTextCreatorProtocol.swift; sourceTree = "<group>"; };
+		564C553C1D495FC4008ECC27 /* InitialsCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InitialsCreator.swift; path = ../ContactCircularView/Classes/InitialsCreator.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* ContactCircularView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactCircularView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +80,9 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				564C553A1D495FC4008ECC27 /* ContactCircularView.swift */,
+				564C553B1D495FC4008ECC27 /* ContactCircularViewTextCreatorProtocol.swift */,
+				564C553C1D495FC4008ECC27 /* InitialsCreator.swift */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for ContactCircularView */,
 				607FACE81AFB9204008FA782 /* Tests */,
@@ -372,6 +381,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				564C553D1D495FC4008ECC27 /* ContactCircularView.swift in Sources */,
+				564C553E1D495FC4008ECC27 /* ContactCircularViewTextCreatorProtocol.swift in Sources */,
+				564C553F1D495FC4008ECC27 /* InitialsCreator.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

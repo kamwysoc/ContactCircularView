@@ -2,6 +2,10 @@ import Foundation
 
 public class InitialsCreator: FormattedTextCreator {
 
+    public init(){
+
+    }
+
     public func formattedTextFromString(string: String) -> String {
         var wordsArray = string.componentsSeparatedByCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet());
         wordsArray = wordsArray.filter({
