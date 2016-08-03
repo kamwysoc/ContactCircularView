@@ -1,5 +1,5 @@
 import Foundation
 
-public protocol FormattedTextCreator {
+@objc public protocol FormattedTextCreator {
     func formattedTextFromString(string: String) -> String
 }

@@ -8,7 +8,7 @@ put some image instead using initials.
 Main inspiration was Contact circular views in iOS Contacts
 */
 
-public class ContactCircularView: UIView {
+@objc public class ContactCircularView: UIView {
     private var textLabel: UILabel!
     private var imageView: UIImageView!
     private var initialsCreator: FormattedTextCreator!
