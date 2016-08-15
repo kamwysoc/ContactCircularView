@@ -175,4 +175,15 @@ extension ContactCircularView {
     public func removeBorder() {
         layer.borderWidth = 0
     }
+
+    /**
+    Making an UIImage from self
+    */
+    public func toImage() -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, 0.0)
+        self.drawViewHierarchyInRect(self.bounds, afterScreenUpdates: true)
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return img
+    }
 }
