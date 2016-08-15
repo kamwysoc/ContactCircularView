@@ -57,7 +57,7 @@ Main inspiration was Contact circular views in iOS Contacts
         textLabel.numberOfLines = 1
         textLabel.translatesAutoresizingMaskIntoConstraints = false;
         textLabel.textAlignment = .Center
-        addSubview(self.textLabel)
+        addSubview(textLabel)
     }
 
     private func createImageView() {
@@ -94,7 +94,7 @@ extension ContactCircularView {
     /*
     Sets an initials from name passed in parameter.
     e.q. "John Doe" -> "JD"
-         "Jonh" - > "J"
+         "Jonh" -> "J"
          "John Mark Doe" -> "JD"
     It makes imageView hidden.
     */
@@ -160,6 +160,13 @@ extension ContactCircularView {
     }
 
     /**
+    Sets a textLabel color from parameter
+    */
+    public func applyTextColor(color: UIColor) {
+        textLabel.textColor = color
+    }
+
+    /**
     Apply image from parameter.
     It makes textLabel hidden
     */
@@ -180,8 +187,8 @@ extension ContactCircularView {
     Making an UIImage from self
     */
     public func toImage() -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, 0.0)
-        self.drawViewHierarchyInRect(self.bounds, afterScreenUpdates: true)
+        UIGraphicsBeginImageContextWithOptions(bounds.size, false, 0.0)
+        drawViewHierarchyInRect(bounds, afterScreenUpdates: true)
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return img

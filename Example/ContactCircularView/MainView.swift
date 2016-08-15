@@ -43,14 +43,14 @@ class MainView: UIView {
         nameTextField.layer.borderWidth = 1.0
         nameTextField.layer.borderColor = UIColor.grayColor().CGColor
         nameTextField.textAlignment = .Center
-        self.addSubview(nameTextField)
+        addSubview(nameTextField)
     }
 
     private func createSwitchDescriptionLabel() {
         switchDescriptionLabel = UILabel()
         switchDescriptionLabel.text = "View with border : "
         switchDescriptionLabel.numberOfLines = 1
-        self.addSubview(switchDescriptionLabel)
+        addSubview(switchDescriptionLabel)
     }
 
     private func createTableView() {
@@ -58,7 +58,7 @@ class MainView: UIView {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.scrollEnabled = false
-        self.addSubview(tableView)
+        addSubview(tableView)
     }
 
     private func createButton() {
@@ -67,7 +67,7 @@ class MainView: UIView {
         applyButton.layer.cornerRadius = 5
         applyButton.addTarget(self, action: #selector(refreshContactView(_:)), forControlEvents: .TouchUpInside)
         applyButton.backgroundColor = UIColor.grayColor()
-        self.addSubview(applyButton)
+        addSubview(applyButton)
     }
 
     private func createApplyWithImageButton() {
@@ -76,26 +76,27 @@ class MainView: UIView {
         applyWithImageButton.layer.cornerRadius = 5
         applyWithImageButton.addTarget(self, action: #selector(applyWithImage(_:)), forControlEvents: .TouchUpInside)
         applyWithImageButton.backgroundColor = UIColor.grayColor()
-        self.addSubview(applyWithImageButton)
+        addSubview(applyWithImageButton)
     }
 
     private func createSwitch() {
         borderSwitch = UISwitch()
-        self.addSubview(borderSwitch)
+        addSubview(borderSwitch)
     }
 
     private func createContactInitialsView() {
         contactInitialsView = ContactCircularView()
         contactInitialsView.backgroundColor = UIColor.redColor()
-        self.addSubview(contactInitialsView)
+        contactInitialsView.applyTextColor(UIColor.whiteColor())
+        addSubview(contactInitialsView)
     }
 
     func refreshContactView(sender: UIButton) {
-        self.delegate?.mainView(self, didTapApplyButton: sender)
+        delegate?.mainView(self, didTapApplyButton: sender)
     }
 
     func applyWithImage(sender: UIButton) {
-        self.delegate?.mainView(self, didTapApplyWithImageButton: sender)
+        delegate?.mainView(self, didTapApplyWithImageButton: sender)
     }
 
     private func applyConstraints() {
