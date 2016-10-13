@@ -12,24 +12,30 @@ Main inspiration was Contact circular views in iOS Contacts
     private var textLabel: UILabel!
     private var imageView: UIImageView!
     private var initialsCreator: FormattedTextCreator!
-    private var textCreator: FormattedTextCreator?
+    private var customTextCreator: FormattedTextCreator?
 
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        textCreator = InitialsCreator()
+        customTextCreator = InitialsCreator()
+        commonInit()
+    }
+
+    init(){
+        super.init(frame: CGRectZero)
+        customTextCreator = InitialsCreator()
         commonInit()
     }
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        textCreator = InitialsCreator()
+        customTextCreator = InitialsCreator()
         commonInit()
     }
 
 
     public init(textCreator: FormattedTextCreator) {
         super.init(frame: CGRectZero)
-        self.textCreator = textCreator
+        self.customTextCreator = textCreator
         commonInit()
     }
 
@@ -97,6 +103,7 @@ extension ContactCircularView {
          "Jonh" -> "J"
          "John Mark Doe" -> "JD"
     It makes imageView hidden.
+    This method use the custom creator
     */
     public func applyInitialsFromName(name: String?) {
         imageView.hidden = true
@@ -114,12 +121,12 @@ extension ContactCircularView {
     Text Creator must be initialized by `initWithTextCreator` before using this method
     */
     public func applyFormattedTextFromString(string: String?) {
-        if let unwrappedTextCreator = textCreator {
+        if let unwrappedTextCreator = customTextCreator {
             imageView.hidden = true
             textLabel.hidden = false
             if let unwrappedName = string {
-                let initials = unwrappedTextCreator.formattedTextFromString(unwrappedName)
-                textLabel.text = initials
+                let formattedText = unwrappedTextCreator.formattedTextFromString(unwrappedName)
+                textLabel.text = formattedText
             } else {
                 textLabel.text = ""
             }

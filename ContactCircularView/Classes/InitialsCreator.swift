@@ -1,6 +1,6 @@
 import Foundation
 
-@objc public class InitialsCreator: NSObject,FormattedTextCreator {
+@objc public class InitialsCreator: NSObject, FormattedTextCreator {
 
     public func formattedTextFromString(string: String) -> String {
         var wordsArray = string.componentsSeparatedByCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet());
