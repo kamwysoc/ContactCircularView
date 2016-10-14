@@ -1,9 +1,14 @@
+//
+// Created by Kamil Wysocki on 14/10/16.
+// Copyright (c) 2016 CocoaPods. All rights reserved.
+//
+
 import Foundation
 
 @objc public class InitialsCreator: NSObject, FormattedTextCreator {
 
     public func formattedTextFromString(string: String) -> String {
-        var wordsArray = string.componentsSeparatedByCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet());
+        var wordsArray = string.componentsSeparatedByCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         wordsArray = wordsArray.filter({
             (word: String) -> Bool in
             return !(word.isEmpty)

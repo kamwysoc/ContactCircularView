@@ -20,7 +20,7 @@ class MainViewController: UIViewController {
 
     private func createMainView() {
         mainView = MainView()
-        mainView.delegate = self;
+        mainView.delegate = self
         self.view.addSubview(mainView)
         mainView.autoPinEdgesToSuperviewEdges()
     }

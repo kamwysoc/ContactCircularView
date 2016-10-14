@@ -1,3 +1,9 @@
+//
+// Created by Kamil Wysocki on 14/10/16.
+// Copyright (c) 2016 CocoaPods. All rights reserved.
+//
+
+
 import Foundation
 import UIKit
 
@@ -9,10 +15,11 @@ Main inspiration was Contact circular views in iOS Contacts
 */
 
 @objc public class ContactCircularView: UIView {
-    private var textLabel: UILabel!
-    private var imageView: UIImageView!
+    private(set) var textLabel: UILabel!
+    private(set) var imageView: UIImageView!
     private var initialsCreator: FormattedTextCreator!
     private var customTextCreator: FormattedTextCreator?
+
 
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -20,7 +27,7 @@ Main inspiration was Contact circular views in iOS Contacts
         commonInit()
     }
 
-    init(){
+    init() {
         super.init(frame: CGRectZero)
         customTextCreator = InitialsCreator()
         commonInit()
@@ -53,7 +60,7 @@ Main inspiration was Contact circular views in iOS Contacts
         }
     }
 
-    public override var frame : CGRect {
+    public override var frame: CGRect {
         didSet {
             applyCircleShareWithBounds(frame)
         }
@@ -67,14 +74,14 @@ Main inspiration was Contact circular views in iOS Contacts
     private func createTextLabel() {
         textLabel = UILabel()
         textLabel.numberOfLines = 1
-        textLabel.translatesAutoresizingMaskIntoConstraints = false;
+        textLabel.translatesAutoresizingMaskIntoConstraints = false
         textLabel.textAlignment = .Center
         addSubview(textLabel)
     }
 
     private func createImageView() {
         imageView = UIImageView(image: nil)
-        imageView.translatesAutoresizingMaskIntoConstraints = false;
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.hidden = true
         addSubview(imageView)
     }
@@ -85,7 +92,7 @@ Main inspiration was Contact circular views in iOS Contacts
 
 
     private func applyConstraints() {
-        let padding = UIEdgeInsetsMake(0, 0, 0, 0);
+        let padding = UIEdgeInsetsMake(0, 0, 0, 0)
         let textFieldTopConstraint = NSLayoutConstraint(item: textLabel, attribute: .Top, relatedBy: .Equal, toItem: self, attribute: .Top, multiplier: 1.0, constant: padding.top)
         let textFieldLeftConstraint = NSLayoutConstraint(item: textLabel, attribute: .Left, relatedBy: .Equal, toItem: self, attribute: .Left, multiplier: 1.0, constant: padding.left)
         let textFieldRightConstraint = NSLayoutConstraint(item: textLabel, attribute: .Right, relatedBy: .Equal, toItem: self, attribute: .Right, multiplier: 1.0, constant: padding.right)
@@ -198,6 +205,7 @@ extension ContactCircularView {
 
     /**
     Making an UIImage from self
+    Note : method should be called after bounds/frame are set in ContactCircularView
     */
     public func toImage() -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(bounds.size, false, 0.0)
@@ -206,4 +214,5 @@ extension ContactCircularView {
         UIGraphicsEndImageContext()
         return img
     }
+
 }
