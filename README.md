@@ -45,7 +45,7 @@ let contactInitialsView = ContactCircularView()
 contactInitialsView.applyImage(UIImage(imageLiteral: "some_cool_image"))
 ```
 
-***Create your custom text Formatter, and initialize ContactCircularView with it***
+***Create your custom TextFormatter, and initialize ContactCircularView with it***
 
 ![](https://github.com/k8mil/ContactCircularView/blob/master/one_letter_circle.png)
 
@@ -69,6 +69,17 @@ contactInitialsView.backgroundColor = UIColor.redColor()
 contactInitialsView.applyTextColor(UIColor.whiteColor())
 contactInitialsView.applyFormattedTextFromString("John Doe")
 
+```
+
+***Create an circularView and make the UIImage from it***
+```swift
+let contactInitialsView = ContactCircularView(textCreator: FirstLetterFormatter())
+contactInitialsView.frame = CGRectMake(0,0,30,30)
+contactInitialsView.backgroundColor = UIColor.redColor()
+contactInitialsView.applyTextColor(UIColor.whiteColor())
+contactInitialsView.applyFormattedTextFromString("John Doe")
+
+let image = contactInitialsView.toImage()
 ```
 
 ## Requirements
