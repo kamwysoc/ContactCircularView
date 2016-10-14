@@ -53,6 +53,12 @@ Main inspiration was Contact circular views in iOS Contacts
         }
     }
 
+    public override var frame : CGRect {
+        didSet {
+            applyCircleShareWithBounds(frame)
+        }
+    }
+
     private func applyCircleShareWithBounds(bounds: CGRect) {
         layer.cornerRadius = bounds.width / 2
         layer.masksToBounds = true
