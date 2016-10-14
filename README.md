@@ -83,12 +83,10 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod "ContactCircularView"
 ```
-
+## todo
+Migrate to Swift 3.0
 ## Author
-
-Kamil Wysocki
-
-Check my [website](wysockikamil.com)
+[Kamil Wysocki](wysockikamil.com)
 
 ## License
 
