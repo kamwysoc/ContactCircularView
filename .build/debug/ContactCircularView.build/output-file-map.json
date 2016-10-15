@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/Users/kamilwysocki/Desktop/Projects/Pod/ContactCircularView/.build/debug/ContactCircularView.build/master.swiftdeps"
+  },
+  "/Users/kamilwysocki/Desktop/Projects/Pod/ContactCircularView/Sources/ContactCircularView.swift": {
+    "dependencies": "/Users/kamilwysocki/Desktop/Projects/Pod/ContactCircularView/.build/debug/ContactCircularView.build/ContactCircularView.d",
+    "object": "/Users/kamilwysocki/Desktop/Projects/Pod/ContactCircularView/.build/debug/ContactCircularView.build/ContactCircularView.swift.o",
+    "swiftmodule": "/Users/kamilwysocki/Desktop/Projects/Pod/ContactCircularView/.build/debug/ContactCircularView.build/ContactCircularView~partial.swiftmodule",
+    "swift-dependencies": "/Users/kamilwysocki/Desktop/Projects/Pod/ContactCircularView/.build/debug/ContactCircularView.build/ContactCircularView.swiftdeps"
+  }
+}

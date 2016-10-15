@@ -1,0 +1,5 @@
+version: "Apple Swift version 3.0 (swiftlang-800.0.46.2 clang-800.0.38)"
+options: "7c1bb42e034ff78681b5f0cf285dc81a"
+build_time: [529886251, 662151000]
+inputs:
+  "/Users/kamilwysocki/Desktop/Projects/Pod/ContactCircularView/Sources/ContactCircularView.swift": [529886246, 0]

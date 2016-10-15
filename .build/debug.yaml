@@ -1,0 +1,47 @@
+client:
+  name: swift-build
+tools: {}
+targets:
+  "test": ["<ContactCircularView.module>","<ContactCircularViewTests.module>","<ContactCircularViewPackageTests.test>"]
+  "main": ["<ContactCircularView.module>"]
+default: "main"
+commands: 
+  "<ContactCircularView.module>":
+    tool: swift-compiler
+    executable: "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    module-name: "ContactCircularView"
+    module-output-path: "/Users/kamilwysocki/Desktop/Projects/Pod/ContactCircularView/.build/debug/ContactCircularView.swiftmodule"
+    inputs: []
+    outputs: ["<ContactCircularView.module>","/Users/kamilwysocki/Desktop/Projects/Pod/ContactCircularView/.build/debug/ContactCircularView.build/ContactCircularView.swift.o"]
+    import-paths: ["/Users/kamilwysocki/Desktop/Projects/Pod/ContactCircularView/.build/debug"]
+    temps-path: "/Users/kamilwysocki/Desktop/Projects/Pod/ContactCircularView/.build/debug/ContactCircularView.build"
+    objects: ["/Users/kamilwysocki/Desktop/Projects/Pod/ContactCircularView/.build/debug/ContactCircularView.build/ContactCircularView.swift.o"]
+    other-args: ["-j8","-D","SWIFT_PACKAGE","-Onone","-g","-enable-testing","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-target","x86_64-apple-macosx10.10","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk","-module-cache-path","/Users/kamilwysocki/Desktop/Projects/Pod/ContactCircularView/.build/debug/ModuleCache"]
+    sources: ["/Users/kamilwysocki/Desktop/Projects/Pod/ContactCircularView/Sources/ContactCircularView.swift"]
+    is-library: true
+    enable-whole-module-optimization: false
+    num-threads: "8"
+
+  "<ContactCircularViewTests.module>":
+    tool: swift-compiler
+    executable: "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    module-name: "ContactCircularViewTests"
+    module-output-path: "/Users/kamilwysocki/Desktop/Projects/Pod/ContactCircularView/.build/debug/ContactCircularViewTests.swiftmodule"
+    inputs: ["<ContactCircularView.module>"]
+    outputs: ["<ContactCircularViewTests.module>","/Users/kamilwysocki/Desktop/Projects/Pod/ContactCircularView/.build/debug/ContactCircularViewTests.build/ContactCircularViewTests.swift.o"]
+    import-paths: ["/Users/kamilwysocki/Desktop/Projects/Pod/ContactCircularView/.build/debug"]
+    temps-path: "/Users/kamilwysocki/Desktop/Projects/Pod/ContactCircularView/.build/debug/ContactCircularViewTests.build"
+    objects: ["/Users/kamilwysocki/Desktop/Projects/Pod/ContactCircularView/.build/debug/ContactCircularViewTests.build/ContactCircularViewTests.swift.o"]
+    other-args: ["-j8","-D","SWIFT_PACKAGE","-Onone","-g","-enable-testing","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-target","x86_64-apple-macosx10.10","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk","-module-cache-path","/Users/kamilwysocki/Desktop/Projects/Pod/ContactCircularView/.build/debug/ModuleCache"]
+    sources: ["/Users/kamilwysocki/Desktop/Projects/Pod/ContactCircularView/Tests/ContactCircularViewTests/ContactCircularViewTests.swift"]
+    is-library: true
+    enable-whole-module-optimization: false
+    num-threads: "8"
+
+  "<ContactCircularViewPackageTests.test>":
+    tool: shell
+    description: "Linking ./.build/debug/ContactCircularViewPackageTests.xctest/Contents/MacOS/ContactCircularViewPackageTests"
+    inputs: ["/Users/kamilwysocki/Desktop/Projects/Pod/ContactCircularView/.build/debug/ContactCircularViewTests.build/ContactCircularViewTests.swift.o","/Users/kamilwysocki/Desktop/Projects/Pod/ContactCircularView/.build/debug/ContactCircularView.build/ContactCircularView.swift.o"]
+    outputs: ["<ContactCircularViewPackageTests.test>","/Users/kamilwysocki/Desktop/Projects/Pod/ContactCircularView/.build/debug/ContactCircularViewPackageTests.xctest/Contents/MacOS/ContactCircularViewPackageTests"]
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-target","x86_64-apple-macosx10.10","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk","-g","-L/Users/kamilwysocki/Desktop/Projects/Pod/ContactCircularView/.build/debug","-o","/Users/kamilwysocki/Desktop/Projects/Pod/ContactCircularView/.build/debug/ContactCircularViewPackageTests.xctest/Contents/MacOS/ContactCircularViewPackageTests","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-module-name","ContactCircularViewPackageTests","-Xlinker","-bundle","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","/Users/kamilwysocki/Desktop/Projects/Pod/ContactCircularView/.build/debug/ContactCircularViewTests.build/ContactCircularViewTests.swift.o","/Users/kamilwysocki/Desktop/Projects/Pod/ContactCircularView/.build/debug/ContactCircularView.build/ContactCircularView.swift.o"]
+
