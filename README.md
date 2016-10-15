@@ -5,6 +5,8 @@
 [![Version](https://img.shields.io/cocoapods/v/ContactCircularView.svg?style=flat)](http://cocoapods.org/pods/ContactCircularView)
 [![License](https://img.shields.io/cocoapods/l/ContactCircularView.svg?style=flat)](http://cocoapods.org/pods/ContactCircularView)
 [![Platform](https://img.shields.io/cocoapods/p/ContactCircularView.svg?style=flat)](http://cocoapods.org/pods/ContactCircularView)
+[![Build](https://travis-ci.org/k8mil/ContactCircularView.svg?branch=master)](https://travis-ci.org/k8mil/ContactCircularView.svg?branch=master)
+
 
 ##Why to use
 
