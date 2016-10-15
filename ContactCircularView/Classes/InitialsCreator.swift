@@ -3,10 +3,23 @@
 // Copyright (c) 2016 CocoaPods. All rights reserved.
 //
 
+
 import Foundation
+
+/**
+    Class than implement FormattedTextCreator protocol
+*/
 
 @objc public class InitialsCreator: NSObject, FormattedTextCreator {
 
+    /**
+        Method that allows you to create initials from name using `formattedTextFromString` method.
+
+        Exaples :
+        "John" -> "J"
+        "John Doe" -> "JD"
+        "John Mark Doe" -> "JD"
+    */
     public func formattedTextFromString(string: String) -> String {
         var wordsArray = string.componentsSeparatedByCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         wordsArray = wordsArray.filter({

@@ -5,6 +5,16 @@
 
 import Foundation
 
+/**
+	Protocol that you have to implement you want to create customTextFormatter and use it in ContactCircularView
+
+*/
+
 public protocol FormattedTextCreator {
+
+	/**
+		Implement this method to create formatted string in your class than responds to
+		FormattedTextCreator protocol
+	*/
     func formattedTextFromString(string: String) -> String
 }

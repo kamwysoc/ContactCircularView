@@ -8,22 +8,25 @@ import Foundation
 import UIKit
 
 /**
-View that allows you to represent people initials (like in Contact book) also it allows you to
-put some image instead using initials.
+    View that allows you to represent people initials (like in Contact book) also it allows you to
+    put some image instead using initials.
 
-Main inspiration was Contact circular views in iOS Contacts
+    Main inspiration was Contact circular views in iOS Contacts
 */
 
 @objc public class ContactCircularView: UIView {
     private(set) var textLabel: UILabel!
     private(set) var imageView: UIImageView!
-    private var initialsCreator: FormattedTextCreator!
+    private let initialsCreator: FormattedTextCreator = InitialsCreator()
     private var customTextCreator: FormattedTextCreator?
 
 
+    /**
+        Initializer with coder
+        calls `commonInit` after `super.init`
+    */
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        customTextCreator = InitialsCreator()
         commonInit()
     }
 
@@ -33,13 +36,20 @@ Main inspiration was Contact circular views in iOS Contacts
         commonInit()
     }
 
+    /**
+        Initializer with frame
+        Sets frame and call `commonInit` method.
+    */
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        customTextCreator = InitialsCreator()
         commonInit()
     }
 
-
+    /**
+        Initializer with textCreator.
+        Sets a customTextCreator from parameter.
+        After that init you can call `applyFormattedTextFromString` method.
+    */
     public init(textCreator: FormattedTextCreator) {
         super.init(frame: CGRectZero)
         self.customTextCreator = textCreator
@@ -50,16 +60,21 @@ Main inspiration was Contact circular views in iOS Contacts
         backgroundColor = UIColor.redColor()
         createTextLabel()
         createImageView()
-        createInitialsCreator()
         applyConstraints()
     }
 
+    /**
+        Overrides bounds didSet event to make circular shape from view
+    */
     public override var bounds: CGRect {
         didSet {
             applyCircleShareWithBounds(bounds)
         }
     }
 
+    /**
+        Overrides bounds didSet event to make circular shape from view
+    */
     public override var frame: CGRect {
         didSet {
             applyCircleShareWithBounds(frame)
@@ -86,11 +101,6 @@ Main inspiration was Contact circular views in iOS Contacts
         addSubview(imageView)
     }
 
-    private func createInitialsCreator() {
-        initialsCreator = InitialsCreator()
-    }
-
-
     private func applyConstraints() {
         let padding = UIEdgeInsetsMake(0, 0, 0, 0)
         let textFieldTopConstraint = NSLayoutConstraint(item: textLabel, attribute: .Top, relatedBy: .Equal, toItem: self, attribute: .Top, multiplier: 1.0, constant: padding.top)
@@ -110,13 +120,14 @@ Main inspiration was Contact circular views in iOS Contacts
 }
 
 extension ContactCircularView {
-    /*
-    Sets an initials from name passed in parameter.
-    e.q. "John Doe" -> "JD"
-         "Jonh" -> "J"
-         "John Mark Doe" -> "JD"
-    It makes imageView hidden.
-    This method use the custom creator
+
+    /**
+        Sets an initials from name passed in parameter.
+        e.q. "John Doe" -> "JD"
+             "Jonh" -> "J"
+             "John Mark Doe" -> "JD"
+        Makes imageView hidden.
+        This method use the build in initialsCreator
     */
     public func applyInitialsFromName(name: String?) {
         imageView.hidden = true
@@ -130,8 +141,8 @@ extension ContactCircularView {
     }
 
     /**
-    Sets formatted text from string using custom text creator.
-    Text Creator must be initialized by `initWithTextCreator` before using this method
+        Sets formatted text from string using customTextCreator.
+        ConctactCircularView must be initialized by `initWithTextCreator` before using this method
     */
     public func applyFormattedTextFromString(string: String?) {
         if let unwrappedTextCreator = customTextCreator {
@@ -149,7 +160,7 @@ extension ContactCircularView {
     }
 
     /**
-    Sets a border with color like in parameters
+        Sets a borderColor and borderWidth fromParameters
     */
     public func applyBorderWithColor(color: UIColor, andWidth width: CGFloat) {
         layer.borderColor = color.CGColor
@@ -157,9 +168,9 @@ extension ContactCircularView {
     }
 
     /**
-    Sets a text from parameter.
-    If text is nil it will apply empty string.
-    It makes imageView hidden.
+        Sets a text from parameter.
+        If text is nil it will apply empty string.
+        It makes imageView hidden.
     */
     public func applyText(text: String?) {
         imageView.hidden = true
@@ -172,7 +183,7 @@ extension ContactCircularView {
     }
 
     /**
-    Sets a textLabel font and color from parameters
+        Sets a textLabel font and text color from parameters
     */
     public func applyTextFont(font: UIFont, andColor color: UIColor) {
         textLabel.font = font
@@ -180,15 +191,15 @@ extension ContactCircularView {
     }
 
     /**
-    Sets a textLabel color from parameter
+        Sets a textLabel text color from parameter
     */
     public func applyTextColor(color: UIColor) {
         textLabel.textColor = color
     }
 
     /**
-    Apply image from parameter.
-    It makes textLabel hidden
+        Apply image from parameter.
+        It makes textLabel hidden
     */
     public func applyImage(image: UIImage) {
         imageView.hidden = false
@@ -197,15 +208,15 @@ extension ContactCircularView {
     }
 
     /**
-    Applying border width to 0
+        Apply border width to 0
     */
     public func removeBorder() {
         layer.borderWidth = 0
     }
 
     /**
-    Making an UIImage from self
-    Note : method should be called after bounds/frame are set in ContactCircularView
+        Making an UIImage from self
+        Note : method should be called after bounds/frame are set in ContactCircularView
     */
     public func toImage() -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(bounds.size, false, 0.0)
