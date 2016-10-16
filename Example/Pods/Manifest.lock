@@ -1,25 +1,25 @@
 PODS:
-  - ContactCircularView (0.1.2)
-  - Nimble (3.2.0)
+  - ContactCircularView (1.0.2)
+  - Nimble (5.0.0)
   - PureLayout (3.0.2)
-  - Quick (0.9.2)
+  - Quick (0.10.0)
 
 DEPENDENCIES:
   - ContactCircularView (from `../`)
-  - Nimble (~> 3.0)
-  - PureLayout
-  - Quick (~> 0.8)
+  - Nimble (~> 5.0)
+  - PureLayout (~> 3.0)
+  - Quick (~> 0.10)
 
 EXTERNAL SOURCES:
   ContactCircularView:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ContactCircularView: 11786829a7e6127031aad27f1dfa56fea554350b
-  Nimble: 703854335d181df169bbca9c97117b5cf8c47c1d
+  ContactCircularView: 416a37b36cde476b8b47446450e3ce6c772acc9f
+  Nimble: 56fc9f5020effa2206de22c3dd910f4fb011b92f
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
-  Quick: 18d057bc66451eedd5d1c8dc99ba2a5db6e60226
+  Quick: 5d290df1c69d5ee2f0729956dcf0fd9a30447eaa
 
-PODFILE CHECKSUM: 1d4445504ddc85fdb2cd0bd1b8083b57e9b89465
+PODFILE CHECKSUM: 57d3e41b4593e898f7eae0cb4d7bb4650bf5830d
 
 COCOAPODS: 1.0.1

@@ -10,7 +10,7 @@ import Foundation
     Class than implement FormattedTextCreator protocol
 */
 
-@objc public class InitialsCreator: NSObject, FormattedTextCreator {
+@objc open class InitialsCreator: NSObject, FormattedTextCreator {
 
     /**
         Method that allows you to create initials from name using `formattedTextFromString` method.
@@ -20,8 +20,8 @@ import Foundation
         "John Doe" -> "JD"
         "John Mark Doe" -> "JD"
     */
-    public func formattedTextFromString(string: String) -> String {
-        var wordsArray = string.componentsSeparatedByCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+    open func formattedTextFromString(_ string: String) -> String {
+        var wordsArray = string.components(separatedBy: CharacterSet.whitespacesAndNewlines)
         wordsArray = wordsArray.filter({
             (word: String) -> Bool in
             return !(word.isEmpty)

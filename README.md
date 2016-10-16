@@ -86,7 +86,9 @@ let image = contactInitialsView.toImage()
 
 ## Requirements
 
-Swift 2.2, Xcode 7
+version 1.1.0+ Swift 3.0, Xcode 8
+
+version 1.0.2 Swift 2.2, Xcode 7
 
 ## Installation
 
@@ -96,8 +98,7 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod "ContactCircularView"
 ```
-## todo
-Migrate to Swift 3.0
+
 ## Author
 [Kamil Wysocki](wysockikamil.com)
 

@@ -14,11 +14,11 @@ import UIKit
     Main inspiration was Contact circular views in iOS Contacts
 */
 
-@objc public class ContactCircularView: UIView {
-    private(set) var textLabel: UILabel!
-    private(set) var imageView: UIImageView!
-    private let initialsCreator: FormattedTextCreator = InitialsCreator()
-    private var customTextCreator: FormattedTextCreator?
+@objc open class ContactCircularView: UIView {
+    fileprivate(set) var textLabel: UILabel!
+    fileprivate(set) var imageView: UIImageView!
+    fileprivate let initialsCreator: FormattedTextCreator = InitialsCreator()
+    fileprivate var customTextCreator: FormattedTextCreator?
 
 
     /**
@@ -31,7 +31,7 @@ import UIKit
     }
 
     init() {
-        super.init(frame: CGRectZero)
+        super.init(frame: CGRect.zero)
         customTextCreator = InitialsCreator()
         commonInit()
     }
@@ -51,13 +51,13 @@ import UIKit
         After that init you can call `applyFormattedTextFromString` method.
     */
     public init(textCreator: FormattedTextCreator) {
-        super.init(frame: CGRectZero)
+        super.init(frame: CGRect.zero)
         self.customTextCreator = textCreator
         commonInit()
     }
 
-    private func commonInit() {
-        backgroundColor = UIColor.redColor()
+    fileprivate func commonInit() {
+        backgroundColor = UIColor.red
         createTextLabel()
         createImageView()
         applyConstraints()
@@ -66,7 +66,7 @@ import UIKit
     /**
         Overrides bounds didSet event to make circular shape from view
     */
-    public override var bounds: CGRect {
+    open override var bounds: CGRect {
         didSet {
             applyCircleShareWithBounds(bounds)
         }
@@ -75,43 +75,43 @@ import UIKit
     /**
         Overrides bounds didSet event to make circular shape from view
     */
-    public override var frame: CGRect {
+    open override var frame: CGRect {
         didSet {
             applyCircleShareWithBounds(frame)
         }
     }
 
-    private func applyCircleShareWithBounds(bounds: CGRect) {
+    fileprivate func applyCircleShareWithBounds(_ bounds: CGRect) {
         layer.cornerRadius = bounds.width / 2
         layer.masksToBounds = true
     }
 
-    private func createTextLabel() {
+    fileprivate func createTextLabel() {
         textLabel = UILabel()
         textLabel.numberOfLines = 1
         textLabel.translatesAutoresizingMaskIntoConstraints = false
-        textLabel.textAlignment = .Center
+        textLabel.textAlignment = .center
         addSubview(textLabel)
     }
 
-    private func createImageView() {
+    fileprivate func createImageView() {
         imageView = UIImageView(image: nil)
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.hidden = true
+        imageView.isHidden = true
         addSubview(imageView)
     }
 
-    private func applyConstraints() {
+    fileprivate func applyConstraints() {
         let padding = UIEdgeInsetsMake(0, 0, 0, 0)
-        let textFieldTopConstraint = NSLayoutConstraint(item: textLabel, attribute: .Top, relatedBy: .Equal, toItem: self, attribute: .Top, multiplier: 1.0, constant: padding.top)
-        let textFieldLeftConstraint = NSLayoutConstraint(item: textLabel, attribute: .Left, relatedBy: .Equal, toItem: self, attribute: .Left, multiplier: 1.0, constant: padding.left)
-        let textFieldRightConstraint = NSLayoutConstraint(item: textLabel, attribute: .Right, relatedBy: .Equal, toItem: self, attribute: .Right, multiplier: 1.0, constant: padding.right)
-        let textFieldBottomConstraint = NSLayoutConstraint(item: textLabel, attribute: .Bottom, relatedBy: .Equal, toItem: self, attribute: .Bottom, multiplier: 1.0, constant: padding.bottom)
+        let textFieldTopConstraint = NSLayoutConstraint(item: textLabel, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: padding.top)
+        let textFieldLeftConstraint = NSLayoutConstraint(item: textLabel, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1.0, constant: padding.left)
+        let textFieldRightConstraint = NSLayoutConstraint(item: textLabel, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1.0, constant: padding.right)
+        let textFieldBottomConstraint = NSLayoutConstraint(item: textLabel, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: padding.bottom)
 
-        let imageViewTopConstraint = NSLayoutConstraint(item: imageView, attribute: .Top, relatedBy: .Equal, toItem: self, attribute: .Top, multiplier: 1.0, constant: padding.top)
-        let imageViewLeftConstraint = NSLayoutConstraint(item: imageView, attribute: .Left, relatedBy: .Equal, toItem: self, attribute: .Left, multiplier: 1.0, constant: padding.left)
-        let imageViewRightConstraint = NSLayoutConstraint(item: imageView, attribute: .Right, relatedBy: .Equal, toItem: self, attribute: .Right, multiplier: 1.0, constant: padding.right)
-        let imageViewBottomConstraint = NSLayoutConstraint(item: imageView, attribute: .Bottom, relatedBy: .Equal, toItem: self, attribute: .Bottom, multiplier: 1.0, constant: padding.bottom)
+        let imageViewTopConstraint = NSLayoutConstraint(item: imageView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: padding.top)
+        let imageViewLeftConstraint = NSLayoutConstraint(item: imageView, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1.0, constant: padding.left)
+        let imageViewRightConstraint = NSLayoutConstraint(item: imageView, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1.0, constant: padding.right)
+        let imageViewBottomConstraint = NSLayoutConstraint(item: imageView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: padding.bottom)
 
         addConstraints([textFieldTopConstraint, textFieldLeftConstraint, textFieldRightConstraint, textFieldBottomConstraint,
                         imageViewTopConstraint, imageViewLeftConstraint, imageViewRightConstraint, imageViewBottomConstraint])
@@ -129,9 +129,9 @@ extension ContactCircularView {
         Makes imageView hidden.
         This method use the build in initialsCreator
     */
-    public func applyInitialsFromName(name: String?) {
-        imageView.hidden = true
-        textLabel.hidden = false
+    public func applyInitialsFromName(_ name: String?) {
+        imageView.isHidden = true
+        textLabel.isHidden = false
         if let unwrappedName = name {
             let initials = initialsCreator.formattedTextFromString(unwrappedName)
             textLabel.text = initials
@@ -144,10 +144,10 @@ extension ContactCircularView {
         Sets formatted text from string using customTextCreator.
         ConctactCircularView must be initialized by `initWithTextCreator` before using this method
     */
-    public func applyFormattedTextFromString(string: String?) {
+    public func applyFormattedTextFromString(_ string: String?) {
         if let unwrappedTextCreator = customTextCreator {
-            imageView.hidden = true
-            textLabel.hidden = false
+            imageView.isHidden = true
+            textLabel.isHidden = false
             if let unwrappedName = string {
                 let formattedText = unwrappedTextCreator.formattedTextFromString(unwrappedName)
                 textLabel.text = formattedText
@@ -162,8 +162,8 @@ extension ContactCircularView {
     /**
         Sets a borderColor and borderWidth fromParameters
     */
-    public func applyBorderWithColor(color: UIColor, andWidth width: CGFloat) {
-        layer.borderColor = color.CGColor
+    public func applyBorderWithColor(_ color: UIColor, andWidth width: CGFloat) {
+        layer.borderColor = color.cgColor
         layer.borderWidth = width
     }
 
@@ -172,9 +172,9 @@ extension ContactCircularView {
         If text is nil it will apply empty string.
         It makes imageView hidden.
     */
-    public func applyText(text: String?) {
-        imageView.hidden = true
-        textLabel.hidden = false
+    public func applyText(_ text: String?) {
+        imageView.isHidden = true
+        textLabel.isHidden = false
         if let unwrappedText = text {
             textLabel.text = unwrappedText
         } else {
@@ -185,7 +185,7 @@ extension ContactCircularView {
     /**
         Sets a textLabel font and text color from parameters
     */
-    public func applyTextFont(font: UIFont, andColor color: UIColor) {
+    public func applyTextFont(_ font: UIFont, andColor color: UIColor) {
         textLabel.font = font
         textLabel.textColor = color
     }
@@ -193,7 +193,7 @@ extension ContactCircularView {
     /**
         Sets a textLabel text color from parameter
     */
-    public func applyTextColor(color: UIColor) {
+    public func applyTextColor(_ color: UIColor) {
         textLabel.textColor = color
     }
 
@@ -201,9 +201,9 @@ extension ContactCircularView {
         Apply image from parameter.
         It makes textLabel hidden
     */
-    public func applyImage(image: UIImage) {
-        imageView.hidden = false
-        textLabel.hidden = true
+    public func applyImage(_ image: UIImage) {
+        imageView.isHidden = false
+        textLabel.isHidden = true
         imageView.image = image
     }
 
@@ -220,7 +220,7 @@ extension ContactCircularView {
     */
     public func toImage() -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(bounds.size, false, 0.0)
-        drawViewHierarchyInRect(bounds, afterScreenUpdates: true)
+        drawHierarchy(in: bounds, afterScreenUpdates: true)
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return img

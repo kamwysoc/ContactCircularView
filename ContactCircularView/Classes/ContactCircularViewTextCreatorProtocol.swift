@@ -16,5 +16,5 @@ public protocol FormattedTextCreator {
 		Implement this method to create formatted string in your class than responds to
 		FormattedTextCreator protocol
 	*/
-    func formattedTextFromString(string: String) -> String
+    func formattedTextFromString(_ string: String) -> String
 }

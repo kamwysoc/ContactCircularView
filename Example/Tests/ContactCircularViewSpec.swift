@@ -18,7 +18,7 @@ class ContactCircularViewSpec: QuickSpec {
             })
 
             it("setting frame should trigger circular shape", closure: {
-                sut.frame = CGRectMake(0, 0, 30, 30)
+                sut.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
                 expect(sut.layer.cornerRadius).to(equal(15.0))
             })
 
@@ -48,22 +48,22 @@ class ContactCircularViewSpec: QuickSpec {
 
             it("after applyText imageView should be hidden, and textLabel should be visible", closure: {
                 sut.applyText("Text")
-                expect(sut.imageView.hidden) == true
-                expect(sut.textLabel.hidden) == false
+                expect(sut.imageView.isHidden) == true
+                expect(sut.textLabel.isHidden) == false
             })
 
             it("after applyInitials imageView should be hidden, and textLabel should be visible", closure: {
                 sut.applyInitialsFromName("John Doe")
-                expect(sut.imageView.hidden) == true
-                expect(sut.textLabel.hidden) == false
+                expect(sut.imageView.isHidden) == true
+                expect(sut.textLabel.isHidden) == false
             })
 
             it("applyBorder and remove it", closure: {
-                sut.applyBorderWithColor(.redColor(), andWidth: 2)
+                sut.applyBorderWithColor(UIColor.red, andWidth: 2)
                 expect(sut.layer.borderWidth) == 2
                 if let cgColor = sut.layer.borderColor {
-                    let borderColor = UIColor(CGColor: cgColor)
-                    let result = UIColor.redColor().isEqual(borderColor)
+                    let borderColor = UIColor(cgColor: cgColor)
+                    let result = UIColor.red.isEqual(borderColor)
                     expect(result) == true
                     sut.removeBorder()
                     expect(sut.layer.borderWidth) == 0
@@ -73,8 +73,8 @@ class ContactCircularViewSpec: QuickSpec {
             })
 
             it("applyTextColor", closure: {
-                sut.applyTextColor(.redColor())
-                expect(sut.textLabel.textColor) == UIColor.redColor()
+                sut.applyTextColor(UIColor.red)
+                expect(sut.textLabel.textColor) == UIColor.red
             })
 
         })

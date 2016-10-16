@@ -3,26 +3,26 @@ import UIKit
 import ContactCircularView
 
 protocol MainViewDelegate {
-    func mainView(view: MainView, didTapApplyButton button: UIButton)
+    func mainView(_ view: MainView, didTapApplyButton button: UIButton)
 
-    func mainView(view: MainView, didTapApplyWithImageButton button: UIButton)
+    func mainView(_ view: MainView, didTapApplyWithImageButton button: UIButton)
 }
 
 class MainView: UIView {
-    private var nameTextField: UITextField!
-    private var switchDescriptionLabel: UILabel!
-    private var applyButton: UIButton!
-    private var applyWithImageButton: UIButton!
-    private var tableView: UITableView!
-    private var contactInitialsView: ContactCircularView!
-    private var borderSwitch: UISwitch!
+    fileprivate var nameTextField: UITextField!
+    fileprivate var switchDescriptionLabel: UILabel!
+    fileprivate var applyButton: UIButton!
+    fileprivate var applyWithImageButton: UIButton!
+    fileprivate var tableView: UITableView!
+    fileprivate var contactInitialsView: ContactCircularView!
+    fileprivate var borderSwitch: UISwitch!
     var delegate: MainViewDelegate?
 
-    let circleViewColors = [UIColor.redColor(), UIColor.blueColor(), UIColor.brownColor()]
+    let circleViewColors = [UIColor.red, UIColor.blue, UIColor.brown]
     var colorCellSelections = [true, false, false]
 
     init() {
-        super.init(frame: CGRectZero)
+        super.init(frame: CGRect.zero)
         createNameTextField()
         createButton()
         createApplyWithImageButton()
@@ -37,118 +37,118 @@ class MainView: UIView {
         super.init(coder: aDecoder)
     }
 
-    private func createNameTextField() {
+    fileprivate func createNameTextField() {
         nameTextField = UITextField()
         nameTextField.placeholder = "Type your name here"
         nameTextField.layer.borderWidth = 1.0
-        nameTextField.layer.borderColor = UIColor.grayColor().CGColor
-        nameTextField.textAlignment = .Center
+        nameTextField.layer.borderColor = UIColor.gray.cgColor
+        nameTextField.textAlignment = .center
         addSubview(nameTextField)
     }
 
-    private func createSwitchDescriptionLabel() {
+    fileprivate func createSwitchDescriptionLabel() {
         switchDescriptionLabel = UILabel()
         switchDescriptionLabel.text = "View with border : "
         switchDescriptionLabel.numberOfLines = 1
         addSubview(switchDescriptionLabel)
     }
 
-    private func createTableView() {
+    fileprivate func createTableView() {
         tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.scrollEnabled = false
+        tableView.isScrollEnabled = false
         addSubview(tableView)
     }
 
-    private func createButton() {
+    fileprivate func createButton() {
         applyButton = UIButton()
-        applyButton.setTitle("Apply", forState: .Normal)
+        applyButton.setTitle("Apply", for: UIControlState())
         applyButton.layer.cornerRadius = 5
-        applyButton.addTarget(self, action: #selector(refreshContactView(_:)), forControlEvents: .TouchUpInside)
-        applyButton.backgroundColor = UIColor.grayColor()
+        applyButton.addTarget(self, action: #selector(refreshContactView(_:)), for: .touchUpInside)
+        applyButton.backgroundColor = UIColor.gray
         addSubview(applyButton)
     }
 
-    private func createApplyWithImageButton() {
+    fileprivate func createApplyWithImageButton() {
         applyWithImageButton = UIButton()
-        applyWithImageButton.setTitle("Image", forState: .Normal)
+        applyWithImageButton.setTitle("Image", for: UIControlState())
         applyWithImageButton.layer.cornerRadius = 5
-        applyWithImageButton.addTarget(self, action: #selector(applyWithImage(_:)), forControlEvents: .TouchUpInside)
-        applyWithImageButton.backgroundColor = UIColor.grayColor()
+        applyWithImageButton.addTarget(self, action: #selector(applyWithImage(_:)), for: .touchUpInside)
+        applyWithImageButton.backgroundColor = UIColor.gray
         addSubview(applyWithImageButton)
     }
 
-    private func createSwitch() {
+    fileprivate func createSwitch() {
         borderSwitch = UISwitch()
         addSubview(borderSwitch)
     }
 
-    private func createContactInitialsView() {
+    fileprivate func createContactInitialsView() {
         contactInitialsView = ContactCircularView()
-        contactInitialsView.backgroundColor = UIColor.redColor()
-        contactInitialsView.applyTextColor(UIColor.whiteColor())
+        contactInitialsView.backgroundColor = UIColor.red
+        contactInitialsView.applyTextColor(UIColor.white)
         addSubview(contactInitialsView)
     }
 
-    func refreshContactView(sender: UIButton) {
+    func refreshContactView(_ sender: UIButton) {
         delegate?.mainView(self, didTapApplyButton: sender)
     }
 
-    func applyWithImage(sender: UIButton) {
+    func applyWithImage(_ sender: UIButton) {
         delegate?.mainView(self, didTapApplyWithImageButton: sender)
     }
 
-    private func applyConstraints() {
-        nameTextField.autoPinEdgeToSuperviewEdge(.Top, withInset: 30)
-        nameTextField.autoAlignAxisToSuperviewAxis(.Vertical)
-        nameTextField.autoSetDimension(.Width, toSize: 250.0)
-        nameTextField.autoSetDimension(.Height, toSize: 50.0)
+    fileprivate func applyConstraints() {
+        nameTextField.autoPinEdge(toSuperviewEdge: .top, withInset: 30)
+        nameTextField.autoAlignAxis(toSuperviewAxis: .vertical)
+        nameTextField.autoSetDimension(.width, toSize: 250.0)
+        nameTextField.autoSetDimension(.height, toSize: 50.0)
 
-        switchDescriptionLabel.autoPinEdge(.Left, toEdge: .Left, ofView: nameTextField)
-        switchDescriptionLabel.autoAlignAxis(.Horizontal, toSameAxisOfView: borderSwitch)
-        switchDescriptionLabel.autoPinEdge(.Right, toEdge: .Left, ofView: borderSwitch, withOffset: -5.0)
+        switchDescriptionLabel.autoPinEdge(.left, to: .left, of: nameTextField)
+        switchDescriptionLabel.autoAlignAxis(.horizontal, toSameAxisOf: borderSwitch)
+        switchDescriptionLabel.autoPinEdge(.right, to: .left, of: borderSwitch, withOffset: -5.0)
 
-        borderSwitch.autoPinEdge(.Top, toEdge: .Bottom, ofView: nameTextField, withOffset: 10.0)
-        borderSwitch.autoPinEdge(.Right, toEdge: .Right, ofView: nameTextField)
+        borderSwitch.autoPinEdge(.top, to: .bottom, of: nameTextField, withOffset: 10.0)
+        borderSwitch.autoPinEdge(.right, to: .right, of: nameTextField)
 
-        tableView.autoPinEdge(.Left, toEdge: .Left, ofView: nameTextField)
-        tableView.autoPinEdge(.Top, toEdge: .Bottom, ofView: switchDescriptionLabel, withOffset: 10.0)
-        tableView.autoSetDimension(.Height, toSize: 150)
-        tableView.autoPinEdge(.Right, toEdge: .Right, ofView: nameTextField)
+        tableView.autoPinEdge(.left, to: .left, of: nameTextField)
+        tableView.autoPinEdge(.top, to: .bottom, of: switchDescriptionLabel, withOffset: 10.0)
+        tableView.autoSetDimension(.height, toSize: 150)
+        tableView.autoPinEdge(.right, to: .right, of: nameTextField)
 
-        applyButton.autoPinEdge(.Top, toEdge: .Bottom, ofView: tableView, withOffset: 15.0)
-        applyButton.autoPinEdge(.Left, toEdge: .Left, ofView: tableView)
-        applyButton.autoSetDimension(.Width, toSize: 80.0)
-        applyButton.autoSetDimension(.Height, toSize: 40.0)
+        applyButton.autoPinEdge(.top, to: .bottom, of: tableView, withOffset: 15.0)
+        applyButton.autoPinEdge(.left, to: .left, of: tableView)
+        applyButton.autoSetDimension(.width, toSize: 80.0)
+        applyButton.autoSetDimension(.height, toSize: 40.0)
 
-        applyWithImageButton.autoPinEdge(.Top, toEdge: .Bottom, ofView: tableView, withOffset: 15.0)
-        applyWithImageButton.autoPinEdge(.Right, toEdge: .Right, ofView: tableView)
-        applyWithImageButton.autoSetDimension(.Height, toSize: 40.0)
-        applyWithImageButton.autoSetDimension(.Width, toSize: 80.0)
+        applyWithImageButton.autoPinEdge(.top, to: .bottom, of: tableView, withOffset: 15.0)
+        applyWithImageButton.autoPinEdge(.right, to: .right, of: tableView)
+        applyWithImageButton.autoSetDimension(.height, toSize: 40.0)
+        applyWithImageButton.autoSetDimension(.width, toSize: 80.0)
 
 
-        contactInitialsView.autoPinEdge(.Top, toEdge: .Bottom, ofView: applyButton, withOffset: 15.0)
-        contactInitialsView.autoAlignAxisToSuperviewAxis(.Vertical)
-        contactInitialsView.autoSetDimension(.Height, toSize: 60.0)
-        contactInitialsView.autoSetDimension(.Width, toSize: 60.0)
+        contactInitialsView.autoPinEdge(.top, to: .bottom, of: applyButton, withOffset: 15.0)
+        contactInitialsView.autoAlignAxis(toSuperviewAxis: .vertical)
+        contactInitialsView.autoSetDimension(.height, toSize: 60.0)
+        contactInitialsView.autoSetDimension(.width, toSize: 60.0)
     }
 
     func updateContactInitialsView() {
         contactInitialsView.applyInitialsFromName(nameTextField.text)
-        let selectedColor = circleViewColors[colorCellSelections.indexOf(true)!]
+        let selectedColor = circleViewColors[colorCellSelections.index(of: true)!]
         contactInitialsView.backgroundColor = selectedColor
-        if (borderSwitch.on) {
-            contactInitialsView.applyBorderWithColor(UIColor.greenColor(), andWidth: 2.0)
+        if (borderSwitch.isOn) {
+            contactInitialsView.applyBorderWithColor(UIColor.green, andWidth: 2.0)
         } else {
             contactInitialsView.removeBorder()
         }
     }
 
-    func refreshCircleViewWithImage(image: UIImage) {
+    func refreshCircleViewWithImage(_ image: UIImage) {
         contactInitialsView.applyImage(image)
-        if (borderSwitch.on) {
-            contactInitialsView.applyBorderWithColor(UIColor.greenColor(), andWidth: 2.0)
+        if (borderSwitch.isOn) {
+            contactInitialsView.applyBorderWithColor(UIColor.green, andWidth: 2.0)
         } else {
             contactInitialsView.removeBorder()
         }
@@ -158,24 +158,24 @@ class MainView: UIView {
 
 extension MainView: UITableViewDelegate, UITableViewDataSource {
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.backgroundColor = circleViewColors[indexPath.row]
-        if (colorCellSelections[indexPath.row]) {
-            cell.textLabel?.textAlignment = .Center
+        cell.backgroundColor = circleViewColors[(indexPath as NSIndexPath).row]
+        if (colorCellSelections[(indexPath as NSIndexPath).row]) {
+            cell.textLabel?.textAlignment = .center
             cell.textLabel?.text = "selected"
         }
-        cell.selectionStyle = .None
+        cell.selectionStyle = .none
         return cell
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return circleViewColors.count
     }
 
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         colorCellSelections = [false, false, false]
-        colorCellSelections[indexPath.row] = true
+        colorCellSelections[(indexPath as NSIndexPath).row] = true
         tableView.reloadData()
     }
 }
