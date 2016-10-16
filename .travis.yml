@@ -11,6 +11,5 @@ xcode_sdk: iphonesimulator10.0
 
 script:
 - set -o pipefail && xcodebuild test -workspace Example/ContactCircularView.xcworkspace -scheme ContactCircularView-Example -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.3' | xcpretty
-- pod lib lint
 after_success:
 - bash <(curl -s https://codecov.io/bash)
