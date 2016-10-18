@@ -100,6 +100,7 @@ pod "ContactCircularView"
 ```
 
 ## Author
+
 [Kamil Wysocki](http://wysockikamil.com)
 
 ## License
