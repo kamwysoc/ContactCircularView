@@ -38,12 +38,3 @@ Update readme
 Configure travis.yml
 
 Add tests for ConctactCircularView
-
-
-0.1.0 Release notes (24/07/16)
-=============================================================
-
-###Updates
-Add sources
-
-Add tests for InitialsCreator
