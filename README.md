@@ -101,8 +101,8 @@ pod "ContactCircularView"
 
 ## Author
 
-[k8mil](https://www.wysockikamil.com)
-[twitterr](https://twitter.com/_k8mil)
+[homepage](https://www.wysockikamil.com)
+[twitter](https://twitter.com/_k8mil)
 
 ## License
 
