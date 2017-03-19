@@ -101,7 +101,7 @@ pod "ContactCircularView"
 
 ## Author
 
-[Kamil Wysocki](http://wysockikamil.com)
+[Kamil Wysocki](https://www.wysockikamil.com)
 
 ## License
 
