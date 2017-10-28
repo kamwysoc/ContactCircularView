@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ContactCircularView'
-  s.version          = '1.1.0'
+  s.version          = '1.1.1'
   s.summary          = 'Contact circular view than allows you to represent your friends by initials or image.'
 
 # This description is used to generate tags and improve search results.
@@ -24,12 +24,12 @@ put some image instead using initials.
 Main inspiration was Contact circular views in iOS Contacts
                        DESC
 
-  s.homepage         = 'https://github.com/k8mil/ContactCircularView'
+  s.homepage         = 'https://github.com/kamwysoc/ContactCircularView'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Kamil Wysocki' => '' }
-  s.source           = { :git => 'https://github.com/k8mil/ContactCircularView.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/_k8mil'
+  s.source           = { :git => 'https://github.com/kamwysoc/ContactCircularView.git', :tag => s.version.to_s }
+  # s.social_media_url = 'https://twitter.com/kamwysoc'
 
   s.ios.deployment_target = '8.0'
 

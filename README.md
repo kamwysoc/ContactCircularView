@@ -8,19 +8,19 @@
 [![Build](https://travis-ci.org/k8mil/ContactCircularView.svg?branch=master)](https://travis-ci.org/k8mil/ContactCircularView.svg?branch=master)
 
 
-##Why to use
+## Why to use
 
 If you want to add some custom ContactsBook screen or you just need come circular view with some text or image inside, this pod is suitable for your app. 
 
-##Demo
+## Demo
 
 ***Example app***
 
-<img src="https://github.com/k8mil/ContactCircularView/blob/master/ContactCircularViewAnimation.gif" width="370" height="693">
+<img src="https://github.com/kamwysoc/ContactCircularView/blob/master/ContactCircularViewAnimation.gif" width="370" height="693">
 
 ***Contact screen***
 
-![](https://github.com/k8mil/ContactCircularView/blob/master/contact_screen.gif)
+![](https://github.com/kamwysoc/ContactCircularView/blob/master/contact_screen.gif)
 
 ## Examples
 
@@ -28,7 +28,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ***Create, apply initials from name, set font and border***
 
-![](https://github.com/k8mil/ContactCircularView/blob/master/example_circle.png)
+![](https://github.com/kamwysoc/ContactCircularView/blob/master/example_circle.png)
 
 ```swift
 let contactInitialsView = ContactCircularView()
@@ -40,7 +40,7 @@ contactInitialsView.applyInitialsFromName("John Doe")
 
 ***Create, apply image***
 
-![](https://github.com/k8mil/ContactCircularView/blob/master/image_circle.png)
+![](https://github.com/kamwysoc/ContactCircularView/blob/master/image_circle.png)
 
 ```swift
 let contactInitialsView = ContactCircularView()
@@ -49,7 +49,7 @@ contactInitialsView.applyImage(UIImage(imageLiteral: "some_cool_image"))
 
 ***Create your custom TextFormatter, and initialize ContactCircularView with it***
 
-![](https://github.com/k8mil/ContactCircularView/blob/master/one_letter_circle.png)
+![](https://github.com/kamwysoc/ContactCircularView/blob/master/one_letter_circle.png)
 
 
 ```swift
@@ -103,7 +103,7 @@ pod "ContactCircularView"
 
 [Homepage](https://www.wysockikamil.com)
 
-[Twitter](https://twitter.com/_k8mil)
+[Twitter](https://twitter.com/kamwysoc)
 
 ## License
 
